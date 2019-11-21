@@ -108,7 +108,8 @@ img.gameicon {
         width: 20%
     }
     .actions.blok > div{
-        margin-right: 2%;
+        margin-right: 100%;
+        margin-left: 10%
     }
     .name > div{
         width: 20%;

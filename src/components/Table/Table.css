@@ -37,6 +37,9 @@
     .cls {
         margin: 0% 4%;
     }
+    /* .tableHeader {
+        width: 100vh;
+    } */
     .campaignTable {
         width: 100%;
         overflow: scroll;
