@@ -1,0 +1,98 @@
+.tableRow {
+    height: 50px;
+    margin: 20px;
+    display: flex;
+    align-items: flex-start
+}
+
+.blok {
+    height: 100%;
+}
+
+.actions{
+    width: 50%
+}
+.actions, .blok, .pricing {
+    display: flex;
+    align-items: center;
+    flex-wrap: nowrap;
+    justify-content: flex-start;
+    color: #2B416C;	
+    font-size: 16px;
+}
+
+
+
+.pricing, .datename {
+    width: 30%;
+}
+
+.date {
+    display: inline-block;
+    line-height: 24px;
+    height: 24px;	
+}
+
+div.date span {
+    display: block;
+    height: 100%;
+}
+
+div.date span:nth-of-type(1) {
+    color: #2B416C;	
+    font-size: 16px;	
+}
+
+div.date span:nth-of-type(2) {
+    width: 130px;
+    color: #7788A3;
+    font-size: 14px;
+    font-style: italic;
+}
+
+div.name span:nth-of-type(1) {
+    color: #2B416C;	
+    font-size: 16px;	
+}
+div.name span:nth-of-type(2) {
+    color: #7788A3;	
+    font-size: 14px;	
+    font-style: italic;	
+}
+
+div.name span, div.actions div {
+    display: block;
+}
+
+.name {
+    line-height: 24px;
+    height: 24px;
+    display: inline-block;
+    width: 100%;
+}
+.name figure{
+    margin: 0;
+    float: left;
+    width: 33%;
+    padding-right: 7%;
+}
+.name figure img{
+    width:50px;
+}
+.name div{
+    float: right;
+    width: 60%;
+    padding-bottom: 15px;
+}
+img.act {
+    height: 24px;
+    margin: 0px 12px;
+
+}
+img.gameicon {
+    height: 50px;
+}
+
+.actions.blok div{
+    margin-right: 10%;
+}

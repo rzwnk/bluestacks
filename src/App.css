@@ -1,22 +1,54 @@
 .App {
-  text-align: center;
+    height: 100%;
+    background-color: #FFFFFF;
+}
+.heading {
+    margin-top: 40px;
+    height: 58px;
+    color: #1F2640;
+}
+.heading div {
+    color: #1F2640;
+    height: 100%;
+    /* width: 230px; */
+    font-weight: bold;
+    line-height: 50px;
+    font-size: 45px;
+    width: 80%;
+    margin-left: auto;
+    margin-right: auto;
 }
 
-.App-logo {
-  height: 40vmin;
+.campaigns-tabs {
+    margin-top: 20px;
+    width: 80%;
+    margin-right: auto;
+    margin-left: auto;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+.switch {
+    display: inline-block;
+    margin-right: 40px;
+    font-size: 27px;
+    line-height: 28px;
+    color: #556789;
+    padding: 15px;
+}
+.switch.active {
+    border-bottom: solid;
+    border-width: 4px;
+    color:  #83A515;
+    font-weight: 600
 }
 
-.App-link {
-  color: #09d3ac;
+
+
+
+.separator {
+    height: 1px;
+    background-color: #F1F1F4;
+    width: 80%;
+    margin-left: auto;
+    margin-right: auto;
+    display: block
 }
