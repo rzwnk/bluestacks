@@ -73,7 +73,6 @@ div.name > span, div.actions > div {
 
 
 .name {
-    line-height: 24px;
     display: inline-block;
     width: 100%;
 }
@@ -103,3 +102,41 @@ img.gameicon {
 .actions.blok > div{
     margin-right: 10%;
 }
+
+@media screen and (max-width: 700px){
+    .actions{
+        width: 20%
+    }
+    .actions.blok > div{
+        margin-right: 2%;
+    }
+    .name > div{
+        width: 20%;
+    }
+    img.gameicon {
+        height: 30px;
+    }
+
+    img.act {
+        height: 16px;
+        margin: 0px 6px;
+    
+    }
+
+    .name > figure > img{
+        width:30px;
+    }
+
+    .name figure{
+        width: auto;
+        padding-right: 0px;
+    }
+
+    .pricing, .datename {
+        width: auto;
+    }
+
+    
+    
+}
+

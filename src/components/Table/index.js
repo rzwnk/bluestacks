@@ -33,7 +33,6 @@ class Table extends React.Component {
                 const _upcoming = currentTab===0 && new Date(todayDateString) < new Date(gameDateString);
                 const _live = currentTab===1 && new Date(todayDateString).toDateString() === new Date(gameDateString).toDateString();
                 const _past = currentTab===2 && new Date(todayDateString) > new Date(gameDateString);
-                debugger
                 if(!_upcoming && !_live && !_past) return null;
                 return <Row todayDateString={todayDateString} dateChange={(date=>this.dateChange(date, idx))} game={ game } />
             })

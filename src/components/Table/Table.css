@@ -28,3 +28,19 @@
     margin: 0% 20%;
     margin-right: 0%
 }
+
+@media screen and (max-width: 700px){
+    .cls.action {
+        margin: 0% 2%;
+        margin-right: 0%
+    }
+    .cls {
+        margin: 0% 4%;
+    }
+    .campaignTable {
+        width: 100%;
+        overflow: scroll;
+        overflow: auto;
+    }
+    
+}
