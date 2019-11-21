@@ -1,4 +1,7 @@
 import React, {useState} from "react";
+import DatePicker from "react-datepicker";
+import "react-datepicker/dist/react-datepicker.css";
+
 import "./Row.css"
 import price from "./price.png"
 import csv from "./csv.png"
@@ -14,7 +17,7 @@ const getDaysText = (days) => {
 }
 
 
-const Row = ({ game, todayDateString }) => {
+const Row = ({ game, todayDateString, dateChange }) => {
     const { img, name, region, date } = game;
     const dateStringSplit = new Date(date).toString().split(" ");
     const [isPopup, changePopupState] = useState(false);
@@ -31,7 +34,7 @@ const Row = ({ game, todayDateString }) => {
                     {dateStringSplit[1].toUpperCase()} {dateStringSplit[3]}, {dateStringSplit[2]}
                 </span>
                 <span>
-                    {Math.abs(diffdays)} {getDaysText(diffdays)}
+                    {Math.abs(diffdays) || null} {getDaysText(diffdays)}
                 </span>
             </div>
             <div className="name">
@@ -54,6 +57,13 @@ const Row = ({ game, todayDateString }) => {
                 <span>Report</span>
             </div>
             <div className="scheduleAgain">
+                <div className="calWrap">
+                <DatePicker
+                withPortal
+                selected={new Date(date)}
+                onChange={dateChange}
+                />
+                </div>
                 <img src={calendar} className="act" alt={name + " calendar"} />
                 <span>Schedule Again</span>
             </div>

@@ -7,6 +7,11 @@ class Table extends React.Component {
     state = {
         game_data : gamesData,
     }
+    dateChange = (d, i) => {
+        const game_data = [...this.state.game_data];
+        game_data[i].date = d;
+        this.setState({game_data});
+    }
     render () {
         const { currentTab } = this.props;
         const { game_data } = this.state;
@@ -20,12 +25,17 @@ class Table extends React.Component {
             <span className="cls action">ACTION</span>
         </div>
         {
-            game_data.map((game)=>{  
-                const _upcoming = currentTab===0 && new Date(todayDateString) < new Date(game.date);
-                const _live = currentTab===1 && new Date(todayDateString) == new Date(game.date);
-                const _past = currentTab===2 && new Date(todayDateString) > new Date(game.date);
+            game_data.map((game, index)=>{  
+                const gameDate = new Date(game.date);
+                const idx = index;
+                const gameDateString = `${gameDate.getFullYear()}-${gameDate.getMonth()+1}-${gameDate.getDate()}`;
+                console.log('gamedatestring', gameDateString);
+                const _upcoming = currentTab===0 && new Date(todayDateString) < new Date(gameDateString);
+                const _live = currentTab===1 && new Date(todayDateString).toDateString() === new Date(gameDateString).toDateString();
+                const _past = currentTab===2 && new Date(todayDateString) > new Date(gameDateString);
+                debugger
                 if(!_upcoming && !_live && !_past) return null;
-                return <Row todayDateString={todayDateString} game={ game } />
+                return <Row todayDateString={todayDateString} dateChange={(date=>this.dateChange(date, idx))} game={ game } />
             })
         }
         
