@@ -1,24 +1,37 @@
-import React from "react";
+import React, {useState} from "react";
 import "./Row.css"
 import price from "./price.png"
 import csv from "./csv.png"
 import report from "./report.png"
+import Popup from "./../Popup"
 import calendar from "./calendar.png"
 
 
-const Row = ({ game: { img, name, region, date } }) => {
+const getDaysText = (days) => {
+    if(days===0)return " live ";
+    if(days<0) return " Days Ahead"
+    return "Days Ago";
+}
 
-    const dateString = new Date(date);
+
+const Row = ({ game, todayDateString }) => {
+    const { img, name, region, date } = game;
+    const dateStringSplit = new Date(date).toString().split(" ");
+    const [isPopup, changePopupState] = useState(false);
+
+    const diffdays = Math.floor((new Date(todayDateString) - new Date(date))/(60*60*24*1000));
+    
+
 
     return <div>
     <div className="tableRow">
         <div className="datename blok">
             <div className="date">
                 <span>
-                    OCT 2019, 28
+                    {dateStringSplit[1].toUpperCase()} {dateStringSplit[3]}, {dateStringSplit[2]}
                 </span>
                 <span>
-                    5 Days Ago
+                    {Math.abs(diffdays)} {getDaysText(diffdays)}
                 </span>
             </div>
             <div className="name">
@@ -27,8 +40,8 @@ const Row = ({ game: { img, name, region, date } }) => {
                 <span>{region}</span>
             </div>
         </div>
-        <div className="pricing blok">
-            <img src={price} className="act" alt={name + " price"} />
+        <div onClick={()=>{ toggleScroll(); changePopupState(true)} } className="pricing blok">
+            <img src={price} className="act" alt={name + " price"}  />
             <span>View Price</span>
         </div>
         <div className="actions blok">
@@ -47,7 +60,19 @@ const Row = ({ game: { img, name, region, date } }) => {
         </div>
     </div>
         <div style={{width: "90%"}} className="separator"></div>
+        {isPopup ? <Popup game={game} closePopup={()=>{ toggleScroll(); changePopupState(false)}} /> : null}
     </div>
 }
 
 export default Row;
+
+
+
+
+const toggleScroll = () => {
+    const isBlocked = document.getElementsByTagName('body')[0].classList.contains('block');
+    if(isBlocked){
+        return document.getElementsByTagName('body')[0].classList.remove('block')
+    }
+    document.getElementsByTagName('body')[0].classList.add('block')
+}
