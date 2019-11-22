@@ -10,14 +10,14 @@ import Popup from "./../Popup"
 import calendar from "./calendar.png"
 
 
-const getDaysText = (days) => {
-    if(days===0)return " live ";
-    if(days<0) return " Days Ahead"
-    return "Days Ago";
+const getDaysText = (days, language) => {
+    if(days===0)return   language=='en' ?  " live " : "Vivre";
+    if(days<0) return  language=='en' ? " Days Ahead": "Jours à venir";
+    return language=='en' ? "Days Ago": "Journées depuis" ;
 }
 
 
-const Row = ({ game, todayDateString, dateChange }) => {
+const Row = ({ game, todayDateString, dateChange, language }) => {
     const { img, name, region, date } = game;
     const dateStringSplit = new Date(date).toString().split(" ");
     const [isPopup, changePopupState] = useState(false);
@@ -34,7 +34,7 @@ const Row = ({ game, todayDateString, dateChange }) => {
                     {dateStringSplit[1].toUpperCase()} {dateStringSplit[3]}, {dateStringSplit[2]}
                 </span>
                 <span>
-                    {Math.abs(diffdays) || null} {getDaysText(diffdays)}
+                    {Math.abs(diffdays) || null} {getDaysText(diffdays, language)}
                 </span>
             </div>
             <div className="name">
@@ -45,7 +45,7 @@ const Row = ({ game, todayDateString, dateChange }) => {
         </div>
         <div onClick={()=>{ toggleScroll(); changePopupState(true)} } className="pricing blok">
             <img src={price} className="act" alt={name + " price"}  />
-            <span>View Price</span>
+            <span>{ language=='en' ?  "View Price" : "Voir le prix"}</span>
         </div>
         <div className="actions blok">
             <div className="csv">
@@ -54,7 +54,7 @@ const Row = ({ game, todayDateString, dateChange }) => {
             </div>
             <div className="report">
                 <img src={report} className="act" alt={name + " report"} />
-                <span>Report</span>
+                <span>{ language=='en' ?  "Report" : "rapportx"}</span>
             </div>
             <div className="scheduleAgain">
                 <div className="calWrap">
@@ -65,7 +65,7 @@ const Row = ({ game, todayDateString, dateChange }) => {
                 />
                 </div>
                 <img src={calendar} className="act" alt={name + " calendar"} />
-                <span>Schedule Again</span>
+                <span>{ language=='en' ?  "Schedule Again" : "Horaire encore"}</span>
             </div>
         </div>
     </div>
@@ -75,9 +75,6 @@ const Row = ({ game, todayDateString, dateChange }) => {
 }
 
 export default Row;
-
-
-
 
 const toggleScroll = () => {
     const isBlocked = document.getElementsByTagName('body')[0].classList.contains('block');
