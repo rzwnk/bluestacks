@@ -17,7 +17,7 @@ const getDaysText = (days, language) => {
 }
 
 
-const Row = ({ game, todayDateString, dateChange, language }) => {
+const Row = ({ game, todayDateString, dateChange, language, mobile }) => {
     const { img, name, region, date } = game;
     const dateStringSplit = new Date(date).toString().split(" ");
     const [isPopup, changePopupState] = useState(false);
@@ -45,17 +45,17 @@ const Row = ({ game, todayDateString, dateChange, language }) => {
         </div>
         <div onClick={()=>{ toggleScroll(); changePopupState(true)} } className="pricing blok">
             <img src={price} className="act" alt={name + " price"}  />
-            <span>{ language=='en' ?  "View Price" : "Voir le prix"}</span>
+            {!mobile&&<span>{ language=='en' ?  "View Price" : "Voir le prix"}</span>}
         </div>
         <div className="actions blok">
-            <div className="csv">
+            {!mobile && <div className="csv">
                 <img src={csv} className="act" alt={name + " csv"} />
                 <span>CSV</span>
-            </div>
-            <div className="report">
+            </div>}
+            {!mobile && <div className="report">
                 <img src={report} className="act" alt={name + " report"} />
                 <span>{ language=='en' ?  "Report" : "rapportx"}</span>
-            </div>
+            </div>}
             <div className="scheduleAgain">
                 <div className="calWrap">
                 <DatePicker
@@ -65,7 +65,7 @@ const Row = ({ game, todayDateString, dateChange, language }) => {
                 />
                 </div>
                 <img src={calendar} className="act" alt={name + " calendar"} />
-                <span>{ language=='en' ?  "Schedule Again" : "Horaire encore"}</span>
+                {!mobile && <span>{ language=='en' ?  "Schedule Again" : "Horaire encore"}</span>}
             </div>
         </div>
     </div>

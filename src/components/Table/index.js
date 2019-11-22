@@ -22,7 +22,7 @@ class Table extends React.Component {
             <span className="cls">{`${language=='en' ? "DATE" : "Gérer"}`}</span>
             <span className="cls">{`${language=='en' ? "CAMPAIGNS" : "CAMPAGNES"}`}</span>
             <span className="cls">{`${language=='en' ? "VIEW" : "VUE"}`}</span>
-            <span className="cls action">ACTION</span>
+            <span className="cls action">{ mobile ? "RESCHEDULE" : "ACTION"}</span>
         </div>
         {
             game_data.map((game, index)=>{  
@@ -33,7 +33,7 @@ class Table extends React.Component {
                 const _live = currentTab===1 && new Date(todayDateString).toDateString() === new Date(gameDateString).toDateString();
                 const _past = currentTab===2 && new Date(todayDateString) > new Date(gameDateString);
                 if(!_upcoming && !_live && !_past) return null;
-                return <Row language={language} todayDateString={todayDateString} dateChange={(date=>this.dateChange(date, idx))} game={ game } />
+                return <Row language={language} todayDateString={todayDateString} mobile={mobile} dateChange={(date=>this.dateChange(date, idx))} game={ game } />
             })
         }
         
