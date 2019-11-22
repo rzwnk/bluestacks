@@ -12,6 +12,7 @@ const Header = ({langToggle, language}) => {
                 <div>Play Bigger</div>
             </div>
         </div>
+  <div className="langSelector">
   <input type="radio" name="language" value="fr"
    checked={language === "fr"} 
    onChange={langToggle}
@@ -19,7 +20,7 @@ const Header = ({langToggle, language}) => {
   <input type="radio" name="language" value="en" 
   checked={language === 'en'} 
   onChange={langToggle}
-  /> En<br /> 
+  /> En<br /></div> 
     </header>
 };
 

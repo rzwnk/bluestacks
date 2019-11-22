@@ -19,10 +19,10 @@ class Table extends React.Component {
         const todayDateString = `${today.getFullYear()}-${today.getMonth()+1}-${today.getDate()}`
         return <div className="campaignTable">
         <div className="tableHeader">
-            <span className="cls">{`${language=='en' ? "DATE" : "Gérer"}`}</span>
-            <span className="cls">{`${language=='en' ? "CAMPAIGNS" : "CAMPAGNES"}`}</span>
-            <span className="cls">{`${language=='en' ? "VIEW" : "VUE"}`}</span>
-            <span className="cls action">{ mobile ? "RESCHEDULE" : "ACTION"}</span>
+            <span>{`${language=='en' ? "DATE" : "Gérer"}`}</span>
+            <span>{`${language=='en' ? "CAMPAIGNS" : "CAMPAGNES"}`}</span>
+            <span>{`${language=='en' ? "VIEW" : "VUE"}`}</span>
+            <span className="action">{ mobile ? "RESCHEDULE" : "ACTION"}</span>
         </div>
         {
             game_data.map((game, index)=>{  

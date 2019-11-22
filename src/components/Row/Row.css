@@ -1,18 +1,8 @@
 .tableRow {
-    height: 50px;
     margin: 20px;
-    display: flex;
-    align-items: flex-start
 }
 
-.blok {
-    height: 100%;
-}
-
-.actions{
-    width: 50%
-}
-.actions, .blok, .pricing {
+.actions, .pricing {
     display: flex;
     align-items: center;
     flex-wrap: nowrap;
@@ -21,21 +11,13 @@
     font-size: 16px;
 }
 
-
-
-.pricing, .datename {
-    width: 30%;
-}
-
 .date {
     display: inline-block;
-    line-height: 24px;
-    height: 24px;	
+    line-height: 24px;	
 }
 
 div.date span {
     display: block;
-    height: 100%;
 }
 
 div.date span:nth-of-type(1) {
@@ -44,7 +26,6 @@ div.date span:nth-of-type(1) {
 }
 
 div.date span:nth-of-type(2) {
-    width: 130px;
     color: #7788A3;
     font-size: 14px;
     font-style: italic;
@@ -71,23 +52,15 @@ div.name > span, div.actions > div {
     opacity: 0;
 }
 
-
-.name {
-    display: inline-block;
-    width: 100%;
-}
-.name figure{
+.name figure {
     margin: 0;
     float: left;
-    width: 33%;
     padding-right: 7%;
 }
-.name > figure > img{
+.name > figure > img {
     width:50px;
 }
 .name > div{
-    float: right;
-    width: 60%;
     padding-bottom: 15px;
 }
 img.act {
@@ -98,16 +71,19 @@ img.act {
 img.gameicon {
     height: 50px;
 }
-
+/* 
 .actions.blok > div{
     margin-right: 10%;
 }
+
+ */
+
 
 @media screen and (max-width: 700px){
     .actions{
         width: 20%
     }
-    .actions.blok > div{
+    .actions > div{
         margin-right: 100%;
         margin-left: 10%
     }
@@ -115,17 +91,13 @@ img.gameicon {
         width: 20%;
     }
     img.gameicon {
-        height: 30px;
+        height: 50px;
     }
 
     img.act {
-        height: 16px;
+        height: 40px;
         margin: 0px 6px;
     
-    }
-
-    .name > figure > img{
-        width:30px;
     }
 
     .name figure{
@@ -133,8 +105,16 @@ img.gameicon {
         padding-right: 0px;
     }
 
+    .date,.name {
+        width: min-content;
+    }
+
     .pricing, .datename {
         width: auto;
+    }
+    .tableRow{
+        margin-left: 0px;
+        margin-right: 0px;
     }
 
     

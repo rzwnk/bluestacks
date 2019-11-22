@@ -14,34 +14,49 @@
     height: 50px;
     display: flex;
     align-items: center;
-    width: 100%;
+    justify-content: flex-start
 }
 
-.cls {
+.tableRow {
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly
+}
+
+.tableHeader > span {
     color: #556789;	
     font-size: 16px;	
     font-weight: 500;	
     line-height: 24px;
-    margin: 0% 5%;
+    margin-left:11%;
 }
-.cls.action {
-    margin: 0% 20%;
-    margin-right: 0%
+
+
+
+
+
+.tableHeader > span.action {
+    margin-left: 20%;
 }
 
 @media screen and (max-width: 700px){
-    .cls.action {
-        margin: 0% 2%;
-        margin-right: 0%
+    .tableHeader{
+        justify-content: space-evenly
     }
-    .cls {
-        margin: 0% 4%;
+    .tableHeader > span {
+        margin-left: 4%;
     }
     /* .tableHeader {
         width: 100vh;
     } */
     .campaignTable {
         width: 100%;
+    }   
+    .tableHeader > span.action {
+        margin-left: 0;
     }
-    
+
+    .tableHeader > span {
+    margin-left: 0;
+    }
 }
